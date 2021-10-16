@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="root">
+    <div class="page">
+        <header class="header">                 <!--Логотип-->
+            <img class="header__logo" src="./images/Mesto_RUSSIA.svg" alt="Логотип 'Место'">
+        </header>
+                                 <!--Профиль и редактирование профиля-->
+        <main class="content">
+            <section class="profile">
+                <div class="profile__container">
+                    <img class="profile__avatar" src="./images/Jack-iv-Kusto.svg" alt="Жак-Ив Кусто">
+                    <div class="profile__info">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__eddit-button"></button>
+                        <p class="profile__description">Исследователь океана</p>
+                    </div>
+                </div>
+                <button type="button" class="profile__add-button"></button>
+            </section>
+                                         <!--Картинки-->
+            <section class="places">
+                <ul class="places__cards">
+                    <li class="places__card">
+                        <img src="./images/Karachaevsk.svg" alt="Карачаевск" class="places__image">
+                        <div class="places__text-area">
+                            <h2 class="places__text">Карачаевск</h2>
+                            <button type="button" class="places__like"></button>
+                        </div>
+                    </li>
+                    <li class="places__card">
+                        <img src="./images/Elbrus.png" alt="Эльбрус" class="places__image">
+                        <div class="places__text-area">
+                            <h2 class="places__text">Гора Эльбрус</h2>
+                            <button type="button" class="places__like"></button>
+                        </div>
+                    </li>
+                    <li class="places__card">
+                        <img src="./images/Dombay.svg" alt="Домбай" class="places__image">
+                        <div class="places__text-area">
+                            <h2 class="places__text">Домбай</h2>
+                            <button type="button" class="places__like"></button>
+                        </div>
+                    </li>
+                    <li class="places__card">
+                        <img src="./images/Kamchatka.jpg" alt="Камчатка" class="places__image">
+                        <div class="places__text-area">
+                            <h2 class="places__text">Камчатка</h2>
+                            <button type="button" class="places__like places__like_active"></button>
+                        </div>
+                    </li>
+                    <li class="places__card">
+                        <img src="./images/Altay.jpg" alt="Алтай" class="places__image">
+                        <div class="places__text-area">
+                            <h2 class="places__text">Алтай</h2>
+                            <button type="button" class="places__like"></button>
+                        </div>
+                    </li>
+                    <li class="places__card">
+                        <img src="./images/Smolensk.jpg" alt="Смоленск" class="places__image">
+                        <div class="places__text-area">
+                            <h2 class="places__text">Смоленск</h2>
+                            <button type="button" class="places__like"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+                                 <!--Подвал-->
+        <footer class="footer">
+            <p class="footer__copyright">© 2021 Mesto Russia</p>
+        </footer>
+    </div>
+                                 <!--Всплывающее окно-->
+    <section class="popup">
+        <div class="popup__container">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <form class="popup__form">
+                <input class="popup__input popup__input-name" value="Жак-Ив Кусто">
+                <input class="popup__input popup__input-profession" value="Исследователь океана">
+                <button type="submit" class="popup__submit-button">Сохранить</button>
+            </form>
+            <button type="button" class="popup__close-button"></button>
+        </div>
+    </section>
+    <script src="./pages/index.js"></script>
+</body>
+</html>
