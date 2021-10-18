@@ -27,7 +27,7 @@
 @import url(../blocks/places/__text-area/places__text-area.css);
 @import url(../blocks/places/__text/places__text.css);
 @import url(../blocks/places/__like/places__like.css);
-@import url(../blocks/places/_active/places__like_active.css);
+@import url(../blocks/places/__like/_active/places__like_active.css);
 
 /*Футер*/
 @import url(../blocks/footer/footer.css);
