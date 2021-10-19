@@ -1,13 +1,19 @@
-//       Всплывающее окно
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__eddit-button');
 
-const openPopup = function() {
+let nameInput = document.querySelector('.popup__input_type_name');
+let nameProf = document.querySelector('.profile__name');
+let jobProf = document.querySelector('.profile__description');
+let jobInput = document.querySelector('.popup__input_type_profession');
+
+const openPopup = function() {     // Открывает Попап
     popupElement.classList.add('popup_is-opened');
+    nameInput.value = nameProf.textContent;
+    jobInput.value = jobProf.textContent;
 };
 
-const closePopup = function() {
+const closePopup = function() {    // Закрывает Попап
     popupElement.classList.remove('popup_is-opened');
 };
 
@@ -23,13 +29,7 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 popupElement.addEventListener('click', closePopupByClickOverlay);
 
-//        Изменение содержимого
-let nameProf = document.querySelector('.profile__name');
-let jobProf = document.querySelector('.profile__description');
-let nameInput = document.querySelector('.popup__input-name');
-let jobInput = document.querySelector('.popup__input-profession');
-
-function formSubmitHandler(evt) {
+function changeFormSubmitHandler(evt) {    // Изменение содержимого в профиле
     evt.preventDefault();
     nameProf.textContent = nameInput.value;
     jobProf.textContent = jobInput.value;    
@@ -37,4 +37,4 @@ function formSubmitHandler(evt) {
 };
 
 let formElement = document.querySelector('.popup__form');
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', changeFormSubmitHandler);

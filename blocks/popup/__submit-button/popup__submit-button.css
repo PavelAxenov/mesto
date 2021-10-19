@@ -10,7 +10,7 @@
     padding: 0;
     cursor: pointer;
     text-align: center;
-    font-family: 'Inter';
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
