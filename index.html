@@ -28,48 +28,7 @@
                                          <!--Картинки-->
             <section class="places">
                 <ul class="places__cards">
-                    <li class="places__card">
-                        <img src="./images/Karachaevsk.svg" alt="Карачаевск" class="places__image">
-                        <div class="places__text-area">
-                            <h2 class="places__text">Карачаевск</h2>
-                            <button type="button" class="places__like"></button>
-                        </div>
-                    </li>
-                    <li class="places__card">
-                        <img src="./images/Elbrus.png" alt="Эльбрус" class="places__image">
-                        <div class="places__text-area">
-                            <h2 class="places__text">Гора Эльбрус</h2>
-                            <button type="button" class="places__like"></button>
-                        </div>
-                    </li>
-                    <li class="places__card">
-                        <img src="./images/Dombay.svg" alt="Домбай" class="places__image">
-                        <div class="places__text-area">
-                            <h2 class="places__text">Домбай</h2>
-                            <button type="button" class="places__like"></button>
-                        </div>
-                    </li>
-                    <li class="places__card">
-                        <img src="./images/Kamchatka.jpg" alt="Камчатка" class="places__image">
-                        <div class="places__text-area">
-                            <h2 class="places__text">Камчатка</h2>
-                            <button type="button" class="places__like"></button>
-                        </div>
-                    </li>
-                    <li class="places__card">
-                        <img src="./images/Altay.jpg" alt="Алтай" class="places__image">
-                        <div class="places__text-area">
-                            <h2 class="places__text">Алтай</h2>
-                            <button type="button" class="places__like"></button>
-                        </div>
-                    </li>
-                    <li class="places__card">
-                        <img src="./images/Smolensk.jpg" alt="Смоленск" class="places__image">
-                        <div class="places__text-area">
-                            <h2 class="places__text">Смоленск</h2>
-                            <button type="button" class="places__like"></button>
-                        </div>
-                    </li>
+                    
                 </ul>
             </section>
         </main>
@@ -77,8 +36,8 @@
         <footer class="footer">
             <p class="footer__copyright">© 2021 Mesto Russia</p>
         </footer>
-                                 <!--Всплывающее окно-->
-        <div class="popup">
+                                 <!--Всплывающее окно edit-->
+        <div class="popup popup_type_edit">
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <form name="editForm" class="popup__form">
@@ -89,7 +48,38 @@
                 <button type="button" class="popup__close-button"></button>
             </div>
         </div>
+                                 <!--Всплывающее окно add-->
+        <div class="popup popup_type_add-card">
+            <div class="popup__container">
+                <h3 class="popup__title">Новое место</h3>
+                <form name="addForm" class="popup__form">
+                    <input name="name" class="popup__input popup__input_type_card-name" placeholder="Название" value="">
+                    <input name="source" class="popup__input popup__input_type_card-source" placeholder="Ссылка на картинку" value="">
+                    <button type="submit" class="popup__submit-button">Сохранить</button>
+                </form>
+                <button type="button" class="popup__close-button"></button>
+            </div>
+        </div>
+                                 <!--Всплывающее окно с картинкой-->        
+        <div class="popup popup-image">
+            <div class="popup-image__container">
+                <img class="popup-image__img">
+                <h3 class="popup-image__text"></h3>
+                <button type="button" class="popup__close-button"></button>
+            </div>
+        </div>
     </div>
+                                 <!--Шаблон карточек-->
+    <template class="card-template">
+        <li class="places__card">
+            <button type="button" class="places__remove-button"></button>
+            <img  alt="#" class="places__image">
+            <div class="places__text-area">
+                <h2 class="places__text"></h2>
+                <button type="button" class="places__like"></button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
 </html>
