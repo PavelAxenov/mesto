@@ -99,7 +99,7 @@ formElement.addEventListener("submit", changeFormSubmitHandler); //слушат�
 
 function render() {             //добавление новой карточки с данными на страницу
   initialCards.forEach((data) => {
-    renderItem(data);
+    renderCard(data);
   });
   formAddButton.addEventListener("click", handleSubmit);
 };
@@ -130,7 +130,7 @@ function getCardElement(data) {  //создание карточки
   return htmlElement;
 };
 
-function renderItem(htmlElement) {
+function renderCard(htmlElement) {
   //добавление карточки из getCardElement в список на странице
   let cardAdd = getCardElement(htmlElement);
   list.prepend(cardAdd);
@@ -156,7 +156,7 @@ function handleSubmit(evt) {  //считывание записей из поп�
     name: formAddInputName.value,
     link: formAddInputSource.value,
   };
-  renderItem(addObjectCard);
+  renderCard(addObjectCard);
   closePopup(popupAddElement);
 };
 
