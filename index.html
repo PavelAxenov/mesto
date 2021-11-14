@@ -81,7 +81,7 @@
         <div class="popup popup_type_add-card">
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
-                <form name="addForm" class="popup__form popup__form_type_add-card" novalidate>
+                <form name="addForm" id="addForm" class="popup__form popup__form_type_add-card" novalidate>
                     <label class="popup__input-label">
                         <input
                             id="popup__input-card-name"
@@ -111,6 +111,7 @@
                     </label>
                     <button
                         type="submit"
+                        disabled
                         class="popup__submit-button">
                         Создать
                     </button>
