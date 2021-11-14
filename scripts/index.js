@@ -33,6 +33,7 @@ const formAddInputSource = popupAddElement.querySelector(".popup__input_type_car
 //Открытие попапов
 const openPopup = function (element) {
   element.classList.add("popup_is-opened");
+  document.addEventListener('keydown', closePopupByEsc);
 };
 
 // Слушатели открытия попапов
@@ -55,16 +56,19 @@ const openImagePopup = function (link, name) {  // Открывает Попап
 // Закрытие попапов
 function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
+  document.removeEventListener('keydown', closePopupByEsc);
 };
 
-const closePopupByClickOverlay = function (event) {  //Закрытие попапа при клике по пустому месту
-  if (event.target !== event.currentTarget) {
-    return;
-  };
-  closePopup(popupElement);
-  closePopup(popupAddElement);
-  closePopup(popupImage);
-};
+const allPopups = document.querySelectorAll(".popup");    //Закрытие попапа при клике по пустому месту
+allPopups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup')) {
+      closePopup(popupElement);
+      closePopup(popupAddElement);
+      closePopup(popupImage);
+    };
+  });
+});
 
 // Слушатели закрытия попапов
 popupCloseButtonElement.addEventListener("click", function () {      //Для edit
@@ -82,10 +86,6 @@ formAddButton.addEventListener("click", function () {                //Для ad
 popupCloseButtonImage.addEventListener("click", function () {        //Для попапа с картинкой
   closePopup(popupImage);
 });
-
-popupElement.addEventListener("click", closePopupByClickOverlay);    //Для edit по пустому месту
-popupAddElement.addEventListener("click", closePopupByClickOverlay); //Для add по пустому месту
-popupImage.addEventListener("click", closePopupByClickOverlay);      //Для картинки по пустому месту
 
 // Изменение содержимого в профиле
 function changeFormSubmitHandler(evt) {

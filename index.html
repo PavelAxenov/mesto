@@ -39,11 +39,40 @@
                                  <!--Всплывающее окно edit-->
         <div class="popup popup_type_edit">
             <div class="popup__container">
-                <h3 class="popup__title">Редактировать профиль</h3>
-                <form name="editForm" class="popup__form">
-                    <input name="name" class="popup__input popup__input_type_name" placeholder="Имя" value="">
-                    <input name="about" class="popup__input popup__input_type_profession" placeholder="Род занятий" value="">
-                    <button type="submit" class="popup__submit-button">Сохранить</button>
+                <h3 class="popup__title">Редактировать профиль</h3>                
+                <form name="editForm" class="popup__form popup__form_type_edit" novalidate>
+                    <label class="popup__input-label">
+                        <input
+                            id="popup__input-name"
+                            name="name"
+                            class="popup__input popup__input_type_name"
+                            placeholder="Имя"
+                            value=""
+                            minlength="2"
+                            maxlength="40"
+                            autocomplete="off"
+                            required>
+
+                        <span id="popup__input-name-error" class="popup__input-error"></span>
+                    </label>                    
+                    <label class="popup__input-label">
+                        <input
+                            id="popup__input-profession"
+                            name="about"
+                            class="popup__input popup__input_type_profession"
+                            placeholder="Род занятий"
+                            value=""
+                            minlength="2"
+                            maxlength="200"
+                            autocomplete="off"
+                            required>
+                        <span id="popup__input-profession-error" class="popup__input-error"></span>
+                    </label>                    
+                    <button
+                        type="submit"
+                        class="popup__submit-button">
+                        Сохранить
+                    </button>
                 </form>
                 <button type="button" class="popup__close-button"></button>
             </div>
@@ -52,10 +81,39 @@
         <div class="popup popup_type_add-card">
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
-                <form name="addForm" class="popup__form">
-                    <input name="name" class="popup__input popup__input_type_card-name" placeholder="Название" value="">
-                    <input name="source" class="popup__input popup__input_type_card-source" placeholder="Ссылка на картинку" value="">
-                    <button type="submit" class="popup__submit-button">Сохранить</button>
+                <form name="addForm" class="popup__form popup__form_type_add-card" novalidate>
+                    <label class="popup__input-label">
+                        <input
+                            id="popup__input-card-name"
+                            name="name"
+                            class="popup__input popup__input_type_card-name"
+                            placeholder="Название"
+                            minlength="2"
+                            maxlength="30"
+                            value=""
+                            autocomplete="off"
+                            required>
+
+                        <span id="popup__input-card-name-error" class="popup__input-error"></span>
+                    </label>                    
+                    <label class="popup__input-label">
+                        <input
+                            type="url"
+                            id="popup__input-card-source"
+                            name="source"
+                            class="popup__input popup__input_type_card-source"
+                            placeholder="Ссылка на картинку"
+                            value=""
+                            autocomplete="off"
+                            required>
+
+                        <span id="popup__input-card-source-error" class="popup__input-error"></span>
+                    </label>
+                    <button
+                        type="submit"
+                        class="popup__submit-button">
+                        Создать
+                    </button>
                 </form>
                 <button type="button" class="popup__close-button"></button>
             </div>
@@ -80,6 +138,7 @@
             </div>
         </li>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/initial-сards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
