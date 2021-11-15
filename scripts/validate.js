@@ -1,61 +1,15 @@
-// //Валидация форм
-
-// function enableValidation() {    //Вытащить все формы на странице
-//   const forms = [...document.querySelectorAll('.popup__form')];
-//   forms.forEach(addListenersToForm);
-// };
-
-// function addListenersToForm(form) {      //Навешивание слушателей на иинпуты
-//   const inputs = Array.from(form.querySelectorAll('.popup__input'));
-//   inputs.forEach(addListenersToInput);
-//   form.addEventListener('submit', handleFormSubmit);
-//   form.addEventListener('input', handleFormInput);
-//   toggleButton(form);
-// };
-
-// function handleFormSubmit(evt) {   //сброс стандартного поведения браузера
-//   evt.preventDefault();
-// };
-
-// function handleFormInput(evt) {
-//   const form = evt.currentTarget;
-//   toggleButton(form);
-// };
-
-// function toggleButton(form) {   //деактивация кнопки "Сохранить/создать" если форма не валидна
-//   const button = form.querySelector('.popup__submit-button');
-//   const isFormInvalid = !form.checkValidity();
-//   button.disabled = isFormInvalid;
-//   button.classList.toggle('popup__submit-button_inactive', isFormInvalid);
-//   //cleanForm();
-// };
-
-// function addListenersToInput(input) {
-//   input.addEventListener('input', handleFieldValidation);
-// };
-
-// function handleFieldValidation(evt) {   //Проверка валидности формы
-//   const elementEvtTarget = evt.target;
-//   const errorContainer = document.querySelector(`#${elementEvtTarget.id}-error`);
-//   elementEvtTarget.classList.toggle('popup__input_type_error', !elementEvtTarget.validity.valid);
-//   errorContainer.textContent = elementEvtTarget.validationMessage;
-// };
-
-// enableValidation();
-
-
 //Валидация форм
 const obj = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button', //popup__button
-  inactiveButtonClass: 'popup__submit-button_inactive', //popup__button_disabled
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_inactive',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error'
 };
 
 function enableValidation() {    //Вытащить все формы на странице
-  const forms = document.querySelectorAll(obj.formSelector); //[...document.querySelectorAll('.popup__form')];
+  const forms = document.querySelectorAll(obj.formSelector);
   forms.forEach(addListenersToForm);
 };
 
