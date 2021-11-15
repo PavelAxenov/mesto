@@ -64,14 +64,6 @@ function closePopup(popup) {
   document.removeEventListener("keydown", closePopupByEsc);
 };
 
-allPopups.forEach((popup) => {
-  popup.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("popup")) {
-      closePopup(evt.target);
-    };
-  });
-});
-
 function closePopupByEsc(evt) {  //Закрытие попапов нажатием на ESC
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_is-opened");
@@ -80,20 +72,18 @@ function closePopupByEsc(evt) {  //Закрытие попапов нажати�
 };
 
 // Слушатели закрытия попапов
-popupCloseButtonElement.addEventListener("click", function () {  //Для edit
-  closePopup(profilePopup);
-});
-
-popupCloseButtonAddElement.addEventListener("click", function () {  //Для add
-  closePopup(popupAddElement);
-});
-
-formAddButton.addEventListener("click", function () {  //Для add кнопка сохранить
-  closePopup(popupAddElement);
-});
-
-popupCloseButtonImage.addEventListener("click", function () {  //Для попапа с картинкой
-  closePopup(popupImage);
+allPopups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_is-opened')) {  //для всех попапов с эти классом
+      closePopup(popup);
+    };
+    if (evt.target.classList.contains('popup__close-button')) { //при нажатии на крестик
+      closePopup(popup);
+    };
+    if (evt.target.classList.contains('popup')) {  // для всех попапов
+      closePopup(evt.target);
+    };
+  });
 });
 
 // Изменение содержимого в профиле
