@@ -1,5 +1,5 @@
-import {popupImage} from './constants.js';
-import {openPopup} from './index.js'
+import {popupImage} from "./constants.js";
+import {openPopup} from "./index.js";
 
 export default class Card {
     constructor(data, templateSelector) {
@@ -9,11 +9,11 @@ export default class Card {
     }
 
     _getTemplate() {
-        const cardElement  = document
-        .querySelector('.card-template')
+        const cardElement = document
+        .querySelector(".card-template")
         .content.firstElementChild
         .cloneNode(true);
-        return cardElement 
+        return cardElement;
     }
 
     renderCard() {
@@ -23,15 +23,15 @@ export default class Card {
         htmlImageElement.src = this._link;
         htmlImageElement.alt = this._name;
 
-        this._setListeners(this._element);
+        this._setDeleteListener(this._element);  //this._element
         this._setLikeListener(this._element);
         this._setImageHandler(this._element);
 
         return this._element
     }
 
-    _setListeners(element) {
-        element.querySelector('.places__remove-button').addEventListener("click", this._handleDelete);
+    _setDeleteListener(element) { //добавление обработчика для кнопки удаления
+        element.querySelector(".places__remove-button").addEventListener("click", this._handleDelete);
     }
 
     _handleDelete(event) {
@@ -46,17 +46,33 @@ export default class Card {
         evt.target.classList.toggle("places__like_active");
     };
 
-    _setImageHandler(cardTemplate) {
+    _getAttribute(cardTemplate) {
         const popupImagePic = popupImage.querySelector(".popup-image__img");
         const popupImageText = popupImage.querySelector(".popup-image__text");
         const popupOpenButtonImage = cardTemplate.querySelector(".places__image");
         const popupOpenButtonText = cardTemplate.querySelector(".places__text");
 
-        popupOpenButtonImage.addEventListener('click', function() {
-            popupImagePic.src = popupOpenButtonImage.getAttribute('src');
-            popupImageText.textContent = popupOpenButtonText.textContent;
-            popupImagePic.alt = popupOpenButtonImage.getAttribute('alt');
-            openPopup(popupImage)
-        })
+        popupImagePic.src = popupOpenButtonImage.getAttribute("src");
+        popupImageText.textContent = popupOpenButtonText.textContent;
+        popupImagePic.alt = popupOpenButtonImage.getAttribute("alt");
+        openPopup(popupImage)
+    }
+
+    _setImageHandler = (cardTemplate) => {
+        const popupOpenButtonImage = cardTemplate.querySelector(".places__image");
+        popupOpenButtonImage.addEventListener("click", this._getAttribute);        
     }
 }
+
+
+// const popupImagePic = popupImage.querySelector(".popup-image__img");
+        // const popupImageText = popupImage.querySelector(".popup-image__text");
+        // const popupOpenButtonImage = cardTemplate.querySelector(".places__image");
+        // const popupOpenButtonText = cardTemplate.querySelector(".places__text");
+
+        
+        
+            // popupImagePic.src = popupOpenButtonImage.getAttribute("src");
+            // popupImageText.textContent = popupOpenButtonText.textContent;
+            // popupImagePic.alt = popupOpenButtonImage.getAttribute("alt");
+            // openPopup(popupImage)

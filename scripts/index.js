@@ -52,6 +52,21 @@ function closePopupByEsc(evt) {
   }
 }
 
+// function popupListeners(evt) {
+//   if (evt.target.classList.contains("popup_is-opened")) {
+//     //для всех попапов с эти классом
+//     closePopup(popup);
+//   }
+//   if (evt.target.classList.contains("popup__close-button")) {
+//     //при нажатии на крестик
+//     closePopup(popup);
+//   }
+//   if (evt.target.classList.contains("popup")) {
+//     // для всех попапов
+//     closePopup(evt.target);
+//   }
+// }
+
 // Слушатели закрытия попапов
 allPopups.forEach((popup) => {
   popup.addEventListener("click", (evt) => {
@@ -69,6 +84,8 @@ allPopups.forEach((popup) => {
     }
   });
 });
+
+
 
 // Изменение содержимого в профиле
 function changeFormSubmitHandler(evt) {
@@ -101,7 +118,7 @@ function render() {
   });
 }
 
-function renderItem(data) {
+const renderItem = (data) => {
   const cardAdd = new Card(data, ".card-template").renderCard();
   list.prepend(cardAdd);
 }

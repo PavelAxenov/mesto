@@ -4,7 +4,8 @@ export default class FormValidator {
         this._inputSelector = configValidation.inputSelector;
         this._submitButtonSelector = configValidation.submitButtonSelector;
         this._inactiveButtonClass = configValidation.inactiveButtonClass;
-        this._inputErrorClass = configValidation.inputErrorClass;       
+        this._inputErrorClass = configValidation.inputErrorClass;
+        this._errorClass = configValidation.errorClass
     }
 
     // Функция показа ошибки
@@ -12,6 +13,7 @@ export default class FormValidator {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
+        errorElement.classList.add(this._errorClass);
     }
 
     // Фукнция скрытия ошибки
@@ -19,6 +21,7 @@ export default class FormValidator {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.textContent = '';
+        errorElement.classList.remove(this._errorClass);
     }
 
     // Функция для проверки наличия ошибок
@@ -65,7 +68,7 @@ export default class FormValidator {
         }
     }
 
-    enableValidation() {
-        this._setEventListeners()
+    enableValidation(configValidation) {
+        this._setEventListeners(configValidation);
     }
 }

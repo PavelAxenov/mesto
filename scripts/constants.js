@@ -54,6 +54,12 @@ export const formAddInputSource = popupAddElement.querySelector(".popup__input_t
 export const allPopups = document.querySelectorAll(".popup");
 export const newCardForm = document.querySelector(".popup__form_type_add-card");
 
+// export const listItem = list.querySelector(".places__card");
+// export const popupImagePic = popupImage.querySelector(".popup-image__img");
+// export const popupImageText = popupImage.querySelector(".popup-image__text");
+// export const popupOpenButtonImage = listItem.querySelector(".places__image");
+// export const popupOpenButtonText = listItem.querySelector(".places__text");
+
 //Селектора для валидации формы
 export const configValidation = {
     formSelector: '.popup__form',
