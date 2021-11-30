@@ -1,8 +1,8 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import { initialCards, configValidation } from "./constants.js";
+
 import {
-  initialCards,
-  configValidation,
   profilePopup,
   popupOpenButtonElement,
   profileForm,
@@ -15,15 +15,20 @@ import {
   list,
   formAddInputName,
   formAddInputSource,
-  allPopups,
   newCardForm,
-} from "./constants.js";
+  popupCloseButtonElement,
+  popupCloseButtonAddElement,
+  formAddButton,
+  popupCloseButtonImage,
+  popupElement,
+  popupImage
+} from "./utils.js";
 
 //Открытие попапов
 export function openPopup(popup) {
   popup.classList.add("popup_is-opened");
   document.addEventListener("keydown", closePopupByEsc);
-}
+};
 
 // Слушатели открытия попапов
 popupOpenButtonElement.addEventListener("click", function () {
@@ -42,7 +47,7 @@ popupOpenButtonAddElement.addEventListener("click", function () {
 function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
   document.removeEventListener("keydown", closePopupByEsc);
-}
+};
 
 function closePopupByEsc(evt) {
   //Закрытие попапов нажатием на ESC
@@ -50,42 +55,37 @@ function closePopupByEsc(evt) {
     const openedPopup = document.querySelector(".popup_is-opened");
     closePopup(openedPopup);
   }
-}
+};
 
-// function popupListeners(evt) {
-//   if (evt.target.classList.contains("popup_is-opened")) {
-//     //для всех попапов с эти классом
-//     closePopup(popup);
-//   }
-//   if (evt.target.classList.contains("popup__close-button")) {
-//     //при нажатии на крестик
-//     closePopup(popup);
-//   }
-//   if (evt.target.classList.contains("popup")) {
-//     // для всех попапов
-//     closePopup(evt.target);
-//   }
-// }
+const closePopupByClickOverlay = function (event) {  //Закрытие попапа при клике по пустому месту
+  if (event.target !== event.currentTarget) {
+    return;
+  };
 
-// Слушатели закрытия попапов
-allPopups.forEach((popup) => {
-  popup.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("popup_is-opened")) {
-      //для всех попапов с эти классом
-      closePopup(popup);
-    }
-    if (evt.target.classList.contains("popup__close-button")) {
-      //при нажатии на крестик
-      closePopup(popup);
-    }
-    if (evt.target.classList.contains("popup")) {
-      // для всех попапов
-      closePopup(evt.target);
-    }
-  });
+  closePopup(popupElement);
+  closePopup(popupAddElement);
+  closePopup(popupImage);
+};
+
+popupCloseButtonElement.addEventListener("click", function () {      //Для edit
+  closePopup(popupElement);
 });
 
+popupCloseButtonAddElement.addEventListener("click", function () {   //Для add
+  closePopup(popupAddElement);
+}); 
 
+formAddButton.addEventListener("click", function () {                //Для add кнопка сохранить
+  closePopup(popupAddElement);
+});
+
+popupCloseButtonImage.addEventListener("click", function () {        //Для попапа с картинкой
+  closePopup(popupImage);
+}); 
+
+popupElement.addEventListener("click", closePopupByClickOverlay);    //Для edit по пустому месту
+popupAddElement.addEventListener("click", closePopupByClickOverlay); //Для add по пустому месту
+popupImage.addEventListener("click", closePopupByClickOverlay);      //Для картинки по пустому месту
 
 // Изменение содержимого в профиле
 function changeFormSubmitHandler(evt) {
@@ -93,7 +93,7 @@ function changeFormSubmitHandler(evt) {
   userName.textContent = nameInput.value;
   userJob.textContent = jobInput.value;
   closePopup(profilePopup);
-}
+};
 
 profileForm.addEventListener("submit", changeFormSubmitHandler); //слушатель изменения содержимого в профиле
 
@@ -107,7 +107,7 @@ function handleAddCard(evt) {
   renderItem(addObjectCard);
   closePopup(popupAddElement);
   newCardForm.reset();
-}
+};
 
 newCardForm.addEventListener("submit", handleAddCard);
 
@@ -116,12 +116,12 @@ function render() {
   initialCards.forEach((element) => {
     renderItem(element);
   });
-}
+};
 
 const renderItem = (data) => {
   const cardAdd = new Card(data, ".card-template").renderCard();
   list.prepend(cardAdd);
-}
+};
 
 render();
 
