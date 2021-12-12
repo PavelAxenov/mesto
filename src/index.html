@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
 </head>
 <body class="root">
     <div class="page">
         <header class="header">                 <!--Логотип-->
-            <img class="header__logo" src="./images/Mesto_RUSSIA.svg" alt="Логотип 'Место'">
+            <img class="header__logo" src="<%=require('./images/Mesto_RUSSIA.svg')%>" alt="Логотип 'Место'">
         </header>
                                  <!--Профиль и редактирование профиля-->
         <main class="content">
             <section class="profile">
                 <div class="profile__container">
-                    <img class="profile__avatar" src="./images/Jack-iv-Kusto.svg" alt="Жак-Ив Кусто">
+                    <img class="profile__avatar" src="<%=require('./images/Jack-iv-Kusto.svg')%>" alt="Жак-Ив Кусто">
                     <div class="profile__info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button aria-label="Изменить" type="button" class="profile__eddit-button"></button>
@@ -135,6 +135,6 @@
             </div>
         </li>
     </template>
-    <script type="module" src="./scripts/index.js"></script>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
 </body>
 </html>

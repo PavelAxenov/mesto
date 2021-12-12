@@ -3,7 +3,8 @@ export const profilePopup = document.querySelector(".popup_type_edit");
 export const popupElement = document.querySelector(".popup_type_edit");
 export const popupCloseButtonElement = popupElement.querySelector(".popup__close-button");
 export const popupOpenButtonElement = document.querySelector(".profile__eddit-button");
-export const profileForm = profilePopup.querySelector(".popup__form");
+//export const profileForm = profilePopup.querySelector(".popup__form");
+export const profileForm = Array.from(document.querySelectorAll('.popup__form'));
 
 // Содержимое профиля
 export const profile = document.querySelector(".profile");

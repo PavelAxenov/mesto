@@ -33,21 +33,22 @@ export default class FormValidator {
     }
   }
 
-  // Добавляем слушатели
   _setEventListeners() {
-    const inputList = Array.from(
-      this._formElement.querySelectorAll(this._inputSelector)
-    );
-    const buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector
-    );
-    this._toggleButtonState(buttonElement, inputList); // чтобы проверить состояние кнопки в самом начале
+    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    const buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
+    this._toggleButtonState(buttonSubmit, inputList);
 
+    this._formElement.addEventListener('reset', () => {
+      this._disableButton( buttonSubmit);
+      inputList.forEach((inputElement) => {
+        this._hideInputError(inputElement)
+      })
+    });
     inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
+      inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(buttonElement, inputList);
-      });
+        this._toggleButtonState(buttonSubmit, inputList);
+      })
     });
   }
 
@@ -56,6 +57,11 @@ export default class FormValidator {
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
+  }
+
+  _disableButton(buttonElement) {    
+    buttonElement.classList.add(this._inactiveButtonClass);
+    buttonElement.setAttribute("disabled", "disabled");
   }
 
   // Функция блокировки кнопки отправить
