@@ -31,3 +31,13 @@ export const formAddInputSource = popupAddElement.querySelector(".popup__input_t
 // Для использования в ф-циях
 export const allPopups = document.querySelectorAll(".popup");
 export const newCardForm = document.querySelector(".popup__form_type_add-card");
+
+//Селектора для валидации формы
+export const configValidation = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit-button',
+    inactiveButtonClass: 'popup__submit-button_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error'
+};

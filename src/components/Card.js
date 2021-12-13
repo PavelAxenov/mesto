@@ -1,16 +1,12 @@
 export default class Card {
   constructor(data, templateSelector, handleCardClick) {
     this._data = data;
-    this._name = data.name;
-    this._link = data.link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {      //получаем и клонируем шаблон карточки
-    const cardElement = document
-      .querySelector(".card-template")
-      .content.firstElementChild.cloneNode(true);
+    const cardElement = document.querySelector(".card-template").content.firstElementChild.cloneNode(true);
     return cardElement;
   }
 
@@ -38,9 +34,9 @@ export default class Card {
     this._removeButton = this._element.querySelector('.places__remove-button');
     this._setEventListeners();
     
-    this._cardImage.src = this._link;
-    this._cardImage.alt = this._name;
-    this._element.querySelector('.places__text').textContent = this._name;
+    this._cardImage.src = this._data.link;
+    this._cardImage.alt = this._data.name;
+    this._element.querySelector('.places__text').textContent = this._data.name;
  
     return this._element;
   }

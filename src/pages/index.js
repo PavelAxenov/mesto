@@ -1,20 +1,21 @@
-import '../src/pages/index.css';
-import Card from "../src/scripts/Card.js";
-import Section from '../src/scripts/Section.js';
-import FormValidator from "../src/scripts/FormValidator.js";
-import PopupWithImage from '../src/scripts/PopupWithImage.js';
-import PopupWithForm from '../src/scripts/PopupWithForm.js';
-import UserInfo from '../src/scripts/UserInfo.js';
-import { initialCards, configValidation } from "../src/scripts/constants.js";
+import '../pages/index.css';
+import Card from "../components/Card.js";
+import Section from '../components/Section.js';
+import FormValidator from "../components/FormValidator.js";
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import { initialCards } from "../utils/initial-cards.js"
 
 import {
+  configValidation,
   popupOpenButtonElement,
   profileForm,
   nameInput,
   jobInput,
   popupOpenButtonAddElement,
   list
-} from "./scripts/utils.js";
+} from "../utils/constants.js";
 
 function generateCard(data) {
   const card = new Card(data, 'card-template', () => popupImage.open(data.link, data.name));
