@@ -5,7 +5,7 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import { initialCards } from "../utils/initial-cards.js"
+import { initialCards } from "../utils/constants.js"
 
 import {
   configValidation,
@@ -51,7 +51,7 @@ const initialCardList = new Section({
   renderer: (item) => {const cardElement = generateCard(item);
     initialCardList.addItem(cardElement);
   }
-}, list);
+}, '.places__cards');
 
 initialCardList.renderItems();
 
