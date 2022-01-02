@@ -15,13 +15,20 @@ export default class PopupWithForm extends Popup {
     return data;
   }
 
-  _handleSubmit(evt) {
-    evt.preventDefault();
-    this._handleProfileFormSubmit(this._getInputValues());
+  renderLoading(isLoading) {
+    if(isLoading) {
+      this._submitButton.textContent = 'Сохранение...';
+    }else {
+      this._submitButton.textContent = 'Сохранить';
+    }
   }
+
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener('submit', this._handleSubmit.bind(this));
+    this._form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._handleProfileFormSubmit(this._getInputValues());
+    })
   }
 
   close() {

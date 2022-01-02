@@ -5,136 +5,117 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
 </head>
 <body class="root">
     <div class="page">
-        <header class="header">                 <!--Логотип-->
-            <img class="header__logo" src="<%=require('./images/Mesto_RUSSIA.svg')%>" alt="Логотип 'Место'">
+        <header class="header">
+            <img src="<%=require('./images/header__logo.svg')%>" alt="Логотип 'Место'" class="header__logo">
         </header>
-                                 <!--Профиль и редактирование профиля-->
+        
         <main class="content">
             <section class="profile">
                 <div class="profile__container">
-                    <img class="profile__avatar" src="<%=require('./images/Jack-iv-Kusto.svg')%>" alt="Жак-Ив Кусто">
+                    <div class="profile__avatar-container">
+                        <img src="<%=require('./images/profile__avatar.png')%>" alt="Фото профиля" class="profile__avatar">
+                        <button aria-label="Изменить аватар" type="button" class="profile__avatar-button"></button>
+                    </div>
                     <div class="profile__info">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name">Жак&#8209;Ив&nbsp;Кусто</h1>
                         <button aria-label="Изменить" type="button" class="profile__eddit-button"></button>
                         <p class="profile__description">Исследователь океана</p>
                     </div>
                 </div>
-                <button aria-label="Изменить" type="button" class="profile__add-button"></button>
+                <button aria-label="Добавить" type="button" class="profile__add-button"></button>
             </section>
-                                         <!--Картинки-->
             <section class="places">
                 <ul class="places__cards">
                 </ul>
             </section>
         </main>
-                                 <!--Подвал-->
+
         <footer class="footer">
-            <p class="footer__copyright">© 2021 Mesto Russia</p>
+            <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
         </footer>
-                                 <!--Всплывающее окно edit-->
+
         <div class="popup popup_type_edit">
             <div class="popup__container">
-                <h3 class="popup__title">Редактировать профиль</h3>                
-                <form name="editForm" class="popup__form popup__form_type_edit" novalidate>
-                    <label class="popup__input-label">
-                        <input
-                            id="popup__input-name"
-                            name="name"
-                            class="popup__input popup__input_type_name"
-                            placeholder="Имя"
-                            value=""
-                            minlength="2"
-                            maxlength="40"
-                            autocomplete="off"
-                            required>
-                        <span id="popup__input-name-error" class="popup__input-error"></span>
-                    </label>                    
-                    <label class="popup__input-label">
-                        <input
-                            id="popup__input-profession"
-                            name="about"
-                            class="popup__input popup__input_type_profession"
-                            placeholder="Род занятий"
-                            value=""
-                            minlength="2"
-                            maxlength="200"
-                            autocomplete="off"
-                            required>
-                        <span id="popup__input-profession-error" class="popup__input-error"></span>
-                    </label>                    
-                    <button
-                        type="submit"
-                        class="popup__submit-button">
-                        Сохранить
-                    </button>
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form  name="editForm" class="popup__form popup__form_type_edit">
+                    <label class="popup__form-field">
+                        <input type="text" id="popup__input-name" name="name" class="popup__input popup__input_type_name" placeholder="Имя" value="Жак‑Ив Кусто" minlength="2" maxlength="40" required>
+                        <span class="popup__input-error popup__input-name-error"></span>
+                    </label>
+                    <label class="popup__form-field">
+                        <input type="text" id="popup__input-profession" name="about" class="popup__input popup__input_type_profession" placeholder="Профессия" value="Исследователь океана" minlength="2" maxlength="400" required>
+                        <span class="popup__input-error popup__input-profession-error"></span>
+                    </label>
+                    <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
-                <button type="button" class="popup__close-button"></button>
+                <button aria-label="Закрыть" type="button" class="popup__close-button popup__close-button_type_edit-form"></button>
             </div>
         </div>
-                                 <!--Всплывающее окно add-->
+
         <div class="popup popup_type_add-card">
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
-                <form name="addForm" id="addForm" class="popup__form popup__form_type_add-card" novalidate>
-                    <label class="popup__input-label">
-                        <input
-                            id="popup__input-card-name"
-                            name="name"
-                            class="popup__input popup__input_type_card-name"
-                            placeholder="Название"
-                            minlength="2"
-                            maxlength="30"
-                            value=""
-                            autocomplete="off"
-                            required>
-                        <span id="popup__input-card-name-error" class="popup__input-error"></span>
-                    </label>                    
-                    <label class="popup__input-label">
-                        <input
-                            type="url"
-                            id="popup__input-card-source"
-                            name="link"
-                            class="popup__input popup__input_type_card-source"
-                            placeholder="Ссылка на картинку"
-                            value=""
-                            autocomplete="off"
-                            required>
-                        <span id="popup__input-card-source-error" class="popup__input-error"></span>
+                <form  name="addForm" class="popup__form popup__form_type_add-card">
+                    <label class="popup__form-field">
+                        <input type="text" id="popup__input-card-name" name="name" class="popup__input popup__input_type_card-name" placeholder="Название" minlength="2" maxlength="30" required>
+                        <span class="popup__input-error popup__input-card-name-error"></span>
                     </label>
-                    <button
-                        type="submit"
-                        disabled
-                        class="popup__submit-button">
-                        Создать
-                    </button>
+                    <label class="popup__form-field">
+                        <input type="url" id="popup__input-card-source" name="link" class="popup__input popup__input_type_card-source" placeholder="Ссылка на картинку" required>
+                        <span class="popup__input-error popup__input-card-source-error"></span>
+                    </label>
+                    <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
-                <button type="button" class="popup__close-button"></button>
+                <button aria-label="Закрыть" type="button" class="popup__close-button popup__close-button_type_add-card"></button>
             </div>
         </div>
-                                 <!--Всплывающее окно с картинкой-->        
+
         <div class="popup popup-image">
             <div class="popup-image__container">
-                <img class="popup-image__img">
-                <h3 class="popup-image__text"></h3>
-                <button type="button" class="popup__close-button"></button>
+                <img src="#" alt="#" class="popup-image__img">
+                <h2 class="popup-image__text"></h2>
+                <button aria-label="Закрыть" type="button" class="popup__close-button popup__close-button_type_show-image"></button>
+            </div>
+        </div>
+
+        <div class="popup popup_type_confirm">
+            <div class="popup__container">
+                <h3 class="popup__title">Вы уверенны?</h3>
+                <button type="submit" class="popup__submit-button">Да</button>
+                <button aria-label="Закрыть" type="button" class="popup__close-button popup__close-button_type_confirm"></button>
+            </div>
+        </div>
+
+        <div class="popup popup_type_edit-avatar">
+            <div class="popup__container">
+                <h3 class="popup__title">Обновить аватар</h3>
+                <form  name="editAvatarForm" class="popup__form popup__form_type_edit-avatar">
+                    <label class="popup__form-field">
+                        <input type="url" id="popup__input-avatar" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар" required>
+                        <span class="popup__input-error popup__input-avatar-error"></span>
+                    </label>
+                    <button type="submit" class="popup__submit-button">Сохранить</button>
+                </form>
+                <button aria-label="Закрыть" type="button" class="popup__close-button popup__close-button_type_avatar-form"></button>
             </div>
         </div>
     </div>
-                                 <!--Шаблон карточек-->
-    <template class="card-template">
+
+    <template id="card-template">
         <li class="places__card">
             <button type="button" class="places__remove-button"></button>
-            <img  alt="#" class="places__image">
-            <div class="places__text-area">
+            <img src="#" alt="#" class="places__image">
+            <div class="places__text-wrap">
                 <h2 class="places__text"></h2>
-                <button type="button" class="places__like"></button>
+                <div class="places__like-container">
+                    <button type="button" class="places__like-button"></button>
+                    <p class="places__like-counter">0</p>
+                </div>
             </div>
         </li>
     </template>
-    <!-- <script type="module" src="./scripts/index.js"></script> -->
 </body>
 </html>
