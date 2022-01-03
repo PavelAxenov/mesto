@@ -42,11 +42,11 @@
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <form  name="editForm" class="popup__form popup__form_type_edit">
                     <label class="popup__form-field">
-                        <input type="text" id="popup__input-name" name="name" class="popup__input popup__input_type_name" placeholder="Имя" value="Жак‑Ив Кусто" minlength="2" maxlength="40" required>
+                        <input type="text" id="popup__input-name" name="name" class="popup__input popup__input_type_name" placeholder="Имя" value="Жак‑Ив Кусто" minlength="2" maxlength="40" autocomplete="off" required>
                         <span class="popup__input-error popup__input-name-error"></span>
                     </label>
                     <label class="popup__form-field">
-                        <input type="text" id="popup__input-profession" name="about" class="popup__input popup__input_type_profession" placeholder="Профессия" value="Исследователь океана" minlength="2" maxlength="400" required>
+                        <input type="text" id="popup__input-profession" name="about" class="popup__input popup__input_type_profession" placeholder="Профессия" value="Исследователь океана" minlength="2" maxlength="400" autocomplete="off" required>
                         <span class="popup__input-error popup__input-profession-error"></span>
                     </label>
                     <button type="submit" class="popup__submit-button">Сохранить</button>
@@ -60,11 +60,11 @@
                 <h3 class="popup__title">Новое место</h3>
                 <form  name="addForm" class="popup__form popup__form_type_add-card">
                     <label class="popup__form-field">
-                        <input type="text" id="popup__input-card-name" name="name" class="popup__input popup__input_type_card-name" placeholder="Название" minlength="2" maxlength="30" required>
+                        <input type="text" id="popup__input-card-name" name="name" class="popup__input popup__input_type_card-name" autocomplete="off" placeholder="Название" minlength="2" maxlength="30" required>
                         <span class="popup__input-error popup__input-card-name-error"></span>
                     </label>
                     <label class="popup__form-field">
-                        <input type="url" id="popup__input-card-source" name="link" class="popup__input popup__input_type_card-source" placeholder="Ссылка на картинку" required>
+                        <input type="url" id="popup__input-card-source" name="link" class="popup__input popup__input_type_card-source" autocomplete="off" placeholder="Ссылка на картинку" autocomplete="off" required>
                         <span class="popup__input-error popup__input-card-source-error"></span>
                     </label>
                     <button type="submit" class="popup__submit-button">Сохранить</button>
@@ -94,7 +94,7 @@
                 <h3 class="popup__title">Обновить аватар</h3>
                 <form  name="editAvatarForm" class="popup__form popup__form_type_edit-avatar">
                     <label class="popup__form-field">
-                        <input type="url" id="popup__input-avatar" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар" required>
+                        <input type="url" id="popup__input-avatar" name="avatar" class="popup__input popup__input_type_avatar" placeholder="Ссылка на аватар" autocomplete="off" required>
                         <span class="popup__input-error popup__input-avatar-error"></span>
                     </label>
                     <button type="submit" class="popup__submit-button">Сохранить</button>

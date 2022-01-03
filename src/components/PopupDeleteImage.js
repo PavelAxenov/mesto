@@ -4,15 +4,17 @@ export default class PopupDeleteImage extends Popup {
   constructor(popupSelector, handleDeleteCard) {
     super(popupSelector);
     this._handleDeleteCard = handleDeleteCard;
+    //this._close = this.close();
   }
 
   setEventListeners() {
     super.setEventListeners();
     this._popup.querySelector('.popup__submit-button').addEventListener('click', (evt) => {
       evt.preventDefault();
-      this._handleDeleteCard(this._cardElement, this._id);
-      this.close();
+      this._handleDeleteCard(this._cardElement, this._id)
+      //.then(this._close)
     })
+      //.then(this.close());
   }
   
   open(card, id){
