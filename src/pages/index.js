@@ -101,7 +101,6 @@ const popupConfirm = new PopupDeleteImage(
     .then(() => {
       card.remove()
       popupConfirm.close()
-      //modalCloseCallback();
     })
   }
 )
@@ -114,7 +113,6 @@ Promise.all([
     const cardData = data[0].reverse();
     userData = data[1];
 
-    // console.log(userData)
     formInfo.setUserInfo(userData); 
     formInfo.setAvatar(userData.avatar);
 
