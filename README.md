@@ -10,6 +10,6 @@ ___
 
 В ходе работы были использованы ресурсы для оптимизации изображений, PixelPerfect, а так же программа Figma.
 
-Посмотреть сайт: https://kishlyanovp.github.io/mesto/
+Посмотреть сайт: https://pavelaxenov.github.io/mesto/
 
 

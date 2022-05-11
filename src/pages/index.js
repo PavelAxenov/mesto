@@ -1,7 +1,6 @@
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import FormValidator from '../components/FormValidator.js';
-import Popup from '../components/Popup.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupDeleteImage from '../components/PopupDeleteImage.js';
@@ -99,7 +98,8 @@ const popupConfirm = new PopupDeleteImage(
   ".popup_type_confirm",
   (card, id) => {
     api.deleteCard(id)
-    .then(() => {card.remove()
+    .then(() => {
+      card.remove()
       popupConfirm.close()
       //modalCloseCallback();
     })
